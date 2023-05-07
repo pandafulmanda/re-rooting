@@ -42,12 +42,22 @@ body {
     border-bottom: 0.75px dotted #222;
 }
 
+.entry quote {
+    text-align: center;
+    display: block;
+}
+
 .content {
     margin-top: 50%;
 }
 
 .text-center {
     text-align: center;
+}
+
+#playground {
+    height: 600px;
+    width: 100%;
 }
 
 @media (max-width: 550px) {
@@ -63,5 +73,10 @@ body {
     }
     .entry h4 {
         padding-top: 80px
+    }
+
+    #playground {
+        height: 300px;
+        width: 100%;
     }
 }
