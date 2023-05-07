@@ -46,7 +46,9 @@
                 .append("path")
                 .attr("class", "run")
                 .attr('stroke-width', 1.25)
-                .attr('stroke-dasharray', '5,10,3')
+                .attr('stroke-dasharray', () => (
+                    `${Math.random() * 5}, ${Math.random() * 10}, ${Math.random() * 3}`
+                ))
                 .attr('stroke', () => (
                     '#'+Math.floor(Math.random() * Math.pow(2,32) ^ 0xffffff).toString(16).substr(-6)
                 ))
@@ -137,6 +139,9 @@
                     </p>
                     <p>Below, I'm playing around digitally to illustrate parts of the journey.</p>
                     <svg id="playground"></svg>
+                    <p class="caption">
+                        Lines generated from my bike routes using a fork of <a href="https://observablehq.com/@tmcw/running-sf" target="_blank">@tmcw/running-sf"</a>.  Colors, line dashing, and positions are randomized.
+                    </p>
                 </div>
             </div>
         </div>

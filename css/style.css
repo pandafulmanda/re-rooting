@@ -60,6 +60,23 @@ body {
     width: 100%;
 }
 
+#playground path {
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+#playground path:hover {
+    stroke: #222222;
+    stroke-width: 2px;
+    stroke-dasharray: none;
+}
+
+.entry p.caption {
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
+
 @media (max-width: 550px) {
     .nav {
         margin-top: 0;
