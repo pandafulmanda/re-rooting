@@ -1,0 +1,67 @@
+body {
+    font-family: "Jost", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #F7F7F9;
+}
+
+.nav {
+    text-align: right;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding-top: 20px;
+    margin-top: 25%;
+    backdrop-filter: blur(10px);
+}
+
+.nav p {
+    margin-bottom: 0.5em;
+}
+
+.not-link {
+    text-decoration: line-through;
+}
+
+.entry {
+    min-height: 60vh;
+    margin-bottom: 100px;
+}
+
+.entry a[name] {
+    color: #222;
+}
+
+.entry p {
+    letter-spacing: 0.5px;
+    font-size: 1em;
+}
+
+.entry h4 {
+    font-family: 'Caveat', cursive;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 0.75px dotted #222;
+}
+
+.content {
+    margin-top: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (max-width: 550px) {
+    .nav {
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .nav p {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+    .entry h4 {
+        padding-top: 80px
+    }
+}
