@@ -38,7 +38,8 @@
         const ridesGeoJSON = await ridesGeoJSONResponse.json()
 
         const generateSVG = (svgElement) => {
-            const svg = select(svgElement);
+            const svg = select(svgElement)
+            svg.selectAll('*').remove()
             
             svg.selectAll("path")
                 .data(ridesGeoJSON.features)
@@ -65,6 +66,11 @@
         }
 
         generateSVG(document.querySelector('#playground'))
+
+        document.querySelector('#randomize').addEventListener('click', (clickEvent) => {
+            clickEvent.preventDefault()
+            generateSVG(document.querySelector('#playground'))
+        })
     </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R973FT172H"></script>
@@ -140,7 +146,7 @@
                     <p>Below, I'm playing around digitally to illustrate parts of the journey.</p>
                     <svg id="playground"></svg>
                     <p class="caption">
-                        Lines generated from my bike routes using a fork of <a href="https://observablehq.com/@tmcw/running-sf" target="_blank">@tmcw/running-sf"</a>.  Colors, line dashing, and positions are randomized.
+                        Lines generated from my bike routes using a fork of <a href="https://observablehq.com/@tmcw/running-sf" target="_blank">@tmcw/running-sf"</a>.<br/>Colors, line dashing, and positions are <a href="#playing" id="randomize">randomized</a>.
                     </p>
                 </div>
             </div>
