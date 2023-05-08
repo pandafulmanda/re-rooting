@@ -1,7 +1,7 @@
 import { select } from "https://cdn.skypack.dev/d3-selection@3"
 import { geoAzimuthalEqualArea, geoPath } from "https://cdn.jsdelivr.net/npm/d3-geo@3/+esm"
 
-const tonesMinorScale = ['Ab1','Bb1','Cb2','Db2','Eb2','Fb2','Gb2','Ab2']
+const tonesMinorScale = ['Ab1','Bb1','Cb2','Db2','Eb2','Fb2','Gb2','Ab2', 'Bb2', 'Cb3','Db3','Eb3','Fb3','Gb3','Ab3']
 
 const rotation = [-95.34, 29.745].map(n => -n)
 const scale = 200000
@@ -13,6 +13,27 @@ const path = geoPath().projection(geoAzimuthalEqualArea()
 const ridesGeoJSONResponse = await fetch('./data/rides-geojson.geojson')
 const ridesGeoJSON = await ridesGeoJSONResponse.json()
 
+const pathLengths = ridesGeoJSON.features.map((feature) => (feature.coordinates.length))
+const pathLenMin = Math.min(...pathLengths)
+const pathLenMax = Math.max(...pathLengths)
+
+const generateRandomHue = () => (Math.floor(Math.random() * 360))
+const generateMatchingTone = (hue) => (tonesMinorScale[hue % tonesMinorScale.length])
+
+const generateRandom = (feature) => {
+    const randomHue = generateRandomHue()
+    const matchingTone = generateMatchingTone(randomHue)
+    const toneLength = Math.ceil( ( feature.coordinates.length - pathLenMin ) / ( pathLenMax - pathLenMin ) * 16 )
+
+    return {
+        'data-tone': matchingTone,
+        'data-note-length': toneLength,
+        'stroke': `hsla(${randomHue}, ${Math.round(Math.random() * 50) + 50}%, 65%)`,
+    }
+}
+
+const geoAttrs = ridesGeoJSON.features.map((feature) => generateRandom(feature))
+
 const generateSVG = (svgElement) => {
     const svg = select(svgElement)
     svg.selectAll('path').remove()
@@ -22,16 +43,17 @@ const generateSVG = (svgElement) => {
         .enter()
         .append("path")
         .attr("class", "ride")
-        .attr('data-tone', () => (tonesMinorScale[Math.floor(Math.random() * tonesMinorScale.length)]))
-        .attr('data-note-length', () => (`${Math.pow(2, Math.round(Math.random() * 4))}n`))
+
         .attr('stroke-width', 1.25)
+        .attr('fill', 'transparent')
+
+        .attr('data-tone', (d, i) => (geoAttrs[i]['data-tone']))
+        .attr('data-note-length', (d, i) => (geoAttrs[i]['data-note-length']))
+        .attr('stroke', (d, i) => (geoAttrs[i]['stroke']))
+
         .attr('stroke-dasharray', () => (
             `${Math.random() * 5}, ${Math.random() * 10}, ${Math.random() * 3}`
         ))
-        .attr('stroke', () => (
-            '#'+Math.floor(Math.random() * Math.pow(2,32) ^ 0xffffff).toString(16).substr(-6)
-        ))
-        .attr('fill', 'transparent')
         .style('transform', () => (
             `rotate(${Math.random() * Math.PI * 2 - Math.PI}rad)
              translateX(${Math.random() * 200 - 100}px)
