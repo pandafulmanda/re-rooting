@@ -22,56 +22,6 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/skeleton.css">
     <link rel="stylesheet" href="./css/style.css">
-
-    <script type="module">
-        import { select } from "https://cdn.skypack.dev/d3-selection@3"
-        import { geoAzimuthalEqualArea, geoPath } from "https://cdn.jsdelivr.net/npm/d3-geo@3/+esm"
-
-        const rotation = [-95.34, 29.745].map(n => -n)
-        const scale = 200000
-        const path = geoPath().projection(geoAzimuthalEqualArea()
-            .scale(scale)
-            .rotate(rotation)
-            .precision(0.1))
-
-        const ridesGeoJSONResponse = await fetch('./data/rides-geojson.geojson')
-        const ridesGeoJSON = await ridesGeoJSONResponse.json()
-
-        const generateSVG = (svgElement) => {
-            const svg = select(svgElement)
-            svg.selectAll('path').remove()
-            
-            svg.selectAll("path")
-                .data(ridesGeoJSON.features)
-                .enter()
-                .append("path")
-                .attr("class", "run")
-                .attr('stroke-width', 1.25)
-                .attr('stroke-dasharray', () => (
-                    `${Math.random() * 5}, ${Math.random() * 10}, ${Math.random() * 3}`
-                ))
-                .attr('stroke', () => (
-                    '#'+Math.floor(Math.random() * Math.pow(2,32) ^ 0xffffff).toString(16).substr(-6)
-                ))
-                .attr('fill', 'transparent')
-                .style('transform', () => (
-                    `rotate(${Math.random() * Math.PI * 2 - Math.PI}rad)
-                     translateX(${Math.random() * 100 - 50}px)
-                     translateY(${Math.random() * 100 - 50}px)
-                    `))
-                .style('transform-origin', 'center')
-                .attr("d", path)
-            
-            return svg.node()
-        }
-
-        generateSVG(document.querySelector('#playground'))
-
-        document.querySelector('#randomize').addEventListener('click', (clickEvent) => {
-            clickEvent.preventDefault()
-            generateSVG(document.querySelector('#playground'))
-        })
-    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R973FT172H"></script>
     <script>
@@ -144,15 +94,20 @@
                         <a href="https://bookshop.org/p/books/entangled-life-how-fungi-make-our-worlds-change-our-minds-shape-our-futures-merlin-sheldrake/12072841" target="_blank">Entangled Life</a> shifted the blockage. Their words motivated me to reunite with my younger selves and passions.
                     </p>
                     <p>Below, I'm playing around digitally to illustrate parts of the journey.</p>
+                    <p class="caption">
+                        Lines generated from my bike routes using a fork of <a href="https://observablehq.com/@tmcw/running-sf" target="_blank">@tmcw/running-sf</a>.<br/>
+                        Colors, line dashing, positions, and sounds are <a href="#playing" id="randomize">randomized</a>.<br/>
+                        <a href="#playing" id="sound" class="not-link">toggle sound</a>
+                    </p>
                     <svg id="playground" role="img">
                         <title id="playground1">What does it mean to take the start &amp; end out travel?</title>
                     </svg>
-                    <p class="caption">
-                        Lines generated from my bike routes using a fork of <a href="https://observablehq.com/@tmcw/running-sf" target="_blank">@tmcw/running-sf</a>.<br/>Colors, line dashing, and positions are <a href="#playing" id="randomize">randomized</a>.
-                    </p>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js" integrity="sha512-Siyxh4gyNM5SaERNa9BOZSPcu/auHyFUWn9OVFD7MxI3/dVPQklE7tfqS+pLmPHF1zo6UdDaJAp/thihrf0c7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>

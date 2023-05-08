@@ -63,12 +63,20 @@ body {
 #playground path {
     transition: all 200ms ease-in-out;
     cursor: pointer;
+    stroke-linejoin: round;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 1000;
+    }
 }
 
 #playground path:hover {
-    stroke: #222222;
-    stroke-width: 2px;
-    stroke-dasharray: none;
+    stroke-width: 3px;
+    stroke-dasharray: 25;
+    animation: dash 5s linear;
+    animation-iteration-count: infinite;
 }
 
 .entry p.caption {
