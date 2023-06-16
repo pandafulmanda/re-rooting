@@ -85,6 +85,60 @@ body {
     text-align: center;
 }
 
+.fluid-container .content,
+.fluid-container .nav {
+    margin-top: 0;
+}
+
+.fluid-container .content {
+    backdrop-filter: blur(10px);
+}
+
+.prose {
+    padding-left: 2em;
+}
+
+.prose p {
+    margin-bottom: 0;
+}
+
+.fluid-container .entry p {
+    max-width: 720px;
+}
+
+.fluid-container .entry.frameless p {
+   max-width: 100%;
+}
+
+.itinerary {
+    text-align: left;
+    padding-left: 2em;
+}
+
+.itinerary p, .itinerary ul li {
+    margin: 0;
+}
+
+.itinerary .plan {
+    margin: 1em 0;
+}
+
+.itinerary .plan p {
+    border-bottom: 1px solid #222;
+    font-style: italic;
+}
+
+.itinerary .plan ul {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8em;
+    list-style: none;
+}
+
+.itinerary .place {
+    font-style: italic;
+    color: #1EAEDB;
+}
+
 @media (max-width: 550px) {
     .nav {
         margin-top: 0;
@@ -103,5 +157,18 @@ body {
     #playground {
         height: 300px;
         width: 100%;
+    }
+    .prose {
+        padding: 2em 2em 0 2em;
+        text-align: left;
+    }
+    .foot {
+        padding-right: 2em;
+    }
+    .fluid-container .content {
+        z-index: 2;
+    }
+    .fluid-container .entry {
+        padding: 2em;
     }
 }
