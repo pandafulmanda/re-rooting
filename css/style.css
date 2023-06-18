@@ -123,9 +123,19 @@ body {
     margin: 1em 0;
 }
 
-.itinerary .plan p {
+.itinerary .plan p:first-child {
     border-bottom: 1px solid #222;
     font-style: italic;
+}
+
+.itinerary .plan p:not(:first-child) {
+    font-size: 0.75em;
+    font-weight: 300;
+}
+
+#log iframe {
+    min-height: 500px;
+    height: 100vh;
 }
 
 .itinerary .plan ul {
