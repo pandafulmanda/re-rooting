@@ -149,6 +149,16 @@ body {
     color: #1EAEDB;
 }
 
+.nav {
+    height: 100vh;
+    overflow: auto;
+    /* padding-right: 2em; */
+}
+
+img {
+    max-width: 100%;
+}
+
 @media (max-width: 550px) {
     .nav {
         margin-top: 0;
