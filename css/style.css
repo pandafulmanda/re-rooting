@@ -149,9 +149,10 @@ body {
     color: #1EAEDB;
 }
 
-.nav {
+.fluid-container .nav {
     height: 100vh;
     overflow: auto;
+    padding-bottom: 2em;
     /* padding-right: 2em; */
 }
 
