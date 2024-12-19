@@ -191,7 +191,7 @@
                             <div class="column">
                                 <p>
                                     <!-- chicken fried steak -->
-                                    Sometimes it feels like I make you do so many things. I put on a brave face and say, Joe! <a href="#chicken-fried-steak">What will we eat today!</a> knowing full well this is just a game we play, where I put on a show eating with my outsized appetite, trying through osmosis to infect you to eat more than 3 bites. I become sensitive to the design of places, how you labor to make it to the front door, how you put on a show for me as if to say — see, I’m strong, I’m walking well, please sis, don't baby me. You are proud, stubborn, sovereign: like my mom, like me. It’s a dance each day, how much you let me help you, how much I let you suffer.
+                                    Sometimes it feels like I make you do so many things. I put on a brave face and say, Joe! <a class="audio-clip" href="#chicken-fried-steak">What will we eat today!</a> knowing full well this is just a game we play, where I put on a show eating with my outsized appetite, trying through osmosis to infect you to eat more than 3 bites. I become sensitive to the design of places, how you labor to make it to the front door, how you put on a show for me as if to say — see, I’m strong, I’m walking well, please sis, don't baby me. You are proud, stubborn, sovereign: like my mom, like me. It’s a dance each day, how much you let me help you, how much I let you suffer.
                                 </p>
                                 <p>
                                     It’s all so senseless. You’ve already fought so much, as a child in your multiple foster homes, and then overseas, enlisting in the Vietnam war to escape the abuse of your foster mother. And then through your many lives, working in restaurants, construction, oil and gas…your idealism clashing against the pains of the human world: cheating, waste, people with money, numbing their pains, running with scissors.  And here you are, fighting the multiple organ failures in your body.
@@ -200,7 +200,7 @@
                                     <!-- bike in tree has recording and photos -->
                                      <!-- probably a recording somewhere about lotto tickets from krogers -->
                                       <!-- hot chocolate picture, maybe sweet tea or koolaid recording -->
-                                    Through our routine drives to and from dialysis, I get to know your neighborhood through your eyes: who has nice flowers in their yard, where to get the freshest fried seafood, where to find <a href="#bike-tree">the tree with a bike grown into the trunk</a>, where you made friends — the gardener on the corner of Heights and East 14th, the grocers working at the Kroger on West 20th, <a href="#goat">the goat that once guarded a property behind Connie’s on Calvacade</a>. I discover your quirks: <a href="#kroger-lotto">your love and absolute dedication to buying PowerBall numbers two times a week!</a> your uncontrollable craving for anything sweet and sugary, your love of mischief through your <a href="#roach">reenactment of Neeraj’s fear of cockroaches in his car – “Joe, Joe, ah! You kill it!”</a>
+                                    Through our routine drives to and from dialysis, I get to know your neighborhood through your eyes: who has nice flowers in their yard, where to get the freshest fried seafood, where to find <a class="audio-clip" href="#bike-tree">the tree with a bike grown into the trunk</a>, where you made friends — the gardener on the corner of Heights and East 14th, the grocers working at the Kroger on West 20th, <a class="audio-clip" href="#goat">the goat that once guarded a property behind Connie’s on Calvacade</a>. I discover your quirks: <a class="audio-clip" href="#kroger-lotto">your love and absolute dedication to buying PowerBall numbers two times a week!</a> your uncontrollable craving for anything sweet and sugary, your love of mischief through your <a class="audio-clip" href="#roach">reenactment of Neeraj’s fear of cockroaches in his car – “Joe, Joe, ah! You kill it!”</a>
                                 </p>
                                 <p>
                                     We drive by White Oak Bayou often. We both dream of a day when we might bike it together. We never say this wish out loud.
@@ -222,7 +222,7 @@
                                      <!-- show you the things that i like, sister recording -->
                                       <!-- mega bucks -- roaches (2nd) recording -->
                                        <!-- eels  march 1st roach -->
-                                    Every now and then, Joe tells me he’s been down before, but he always catches a big break, a second-wind. We see this in real-time: Each time you seem really broken, each time we think it really might be time for us to convince you to accept hospice, you bounce back with vigor. You oscillate between thoughts of death to dreams of riding a <a href="#purpose">motorcycle again to Galveston beach</a>.
+                                    Every now and then, Joe tells me he’s been down before, but he always catches a big break, a second-wind. We see this in real-time: Each time you seem really broken, each time we think it really might be time for us to convince you to accept hospice, you bounce back with vigor. You oscillate between thoughts of death to dreams of riding a <a class="audio-clip" href="#purpose">motorcycle again to Galveston beach</a>.
                                 </p>
                                 <p>
                                     Sometimes, I ponder the timing of my entering into his life as he’s on his last leg. Am I his grim reaper? His Charon, here to ferry him to the underworld after collecting a coin? His xolo dog walking with him to his death?
@@ -323,5 +323,18 @@
             <!-- footnote: I wanted to cry a bajillion times putting this together.  Writing the story was tough. And then coming back, seeing photos of Joe, listening to his voice...I am reminded of how tired he really was a lot of the time, and how much I loved just listening to his voice and the way he told stories. -->
         </div>
     </div>
+    <script>
+        document.addEventListener('mouseover', function (mouseEvent) {
+            if (mouseEvent.target.classList.contains('audio-clip')) {
+                const itemName = mouseEvent.target.getAttribute('href')
+
+                Array.prototype.map.call(document.querySelectorAll('audio'), function (audioElement) {
+                    audioElement.pause();
+                });
+
+                document.querySelector(`${itemName} audio`).play();
+            }
+        });
+    </script>
 </body>
 </html>
