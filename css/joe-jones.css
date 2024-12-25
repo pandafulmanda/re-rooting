@@ -56,12 +56,12 @@ img {
     gap: 1rem;
 }
 
-.entry figure.has-sound:not(.has-image) {
-    padding-bottom: 1em;
-    margin-bottom: 40vh;
+/* .entry figure.has-sound:not(.has-image) { */
+    /* padding-bottom: 1em; */
+    /* margin-bottom: 40vh; */
     /* background-color: #F7F7F9A8;
     backdrop-filter: blur(0.25rem); */
-}
+/* } */
 
 .entry figure div {
     position: relative;
@@ -99,8 +99,8 @@ img {
     /* filter: blur(1rem);
     transition: all .3s ease-in; */
 
-    position: sticky;
-    top: 0;
+    /* position: sticky;
+    top: 0; */
     margin: 0;
 
     background-color: rgba(247, 247, 249, 0.75);
