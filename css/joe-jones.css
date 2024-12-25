@@ -69,7 +69,7 @@ img {
 }
 
 .entry figure.has-image audio {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
 }
 
@@ -77,8 +77,6 @@ img {
     /* filter: blur(1rem);
     transition: all .3s ease-in; */
 
-
-    z-index: -2;
     position: sticky;
     top: 0;
 }
