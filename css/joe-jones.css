@@ -1,0 +1,56 @@
+img {
+    width: 100%;
+}
+
+.entry {
+    margin: auto;
+    max-width: 720px;
+}
+
+.entry p {
+    margin-bottom: 0;
+}
+
+.entry p + p {
+    margin-top: 2.5rem;
+}
+
+.entry img {
+    max-width: 720px;
+}
+
+
+.entry figure {
+    margin: 0;
+
+    display: flex;
+    gap: 1rem;
+}
+
+.entry figure div {
+    position: relative;
+    /* height: 480px; */
+    /* overflow: hidden; */
+}
+
+.entry figure div img {
+    height: 480px;
+    object-fit: cover;
+}
+
+.entry figure figcaption {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1.5rem;
+}
+
+.entry figure.has-image audio {
+    position: absolute;
+    width: 100%;
+}
