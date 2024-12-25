@@ -222,32 +222,30 @@
                                         <figcaption>Joe shares the bike tree with me.</figcaption>
                                     </div>
                                 </figure>
-                                <figure class="has-image has-sound">
+                                <figure class="has-image has-sound" id="kroger-buddy">
                                     <div>
                                         <p>
                                             where you made friends —
                                             the gardener on the corner of Heights and East 14th,
-                                            the grocers working at the Kroger on West 20th,
+                                            <a href="#kroger-buddy" class="audio-clip">the grocers working at the Kroger on West 20th</a>,
                                         </p>
-                                        <!-- <audio controls src="/sounds/joe-jones--chicken-fried-steak.m4a"></audio> -->
+                                        <audio controls src="/sounds/joe-jones--kroger-buddy.m4a"></audio>
                                         <img src="/images/joe/joe-jones--kroger--friends.jpg" alt="">
                                         <figcaption>Joe used to bike to Kroger with speakers blaring music. He is friends with all the grocers.</figcaption>
                                     </div>
                                 </figure>
-                                <p>
-                                    <a href="#goat" class="audio-clip">the goat that once guarded a property behind Connie’s on Calvacade.</a>
-                                </p>
                                 <figure class="has-sound" id="goat">
                                     <div>
+                                        <p>
+                                            <a href="#goat" class="audio-clip">the goat that once guarded a property behind Connie’s on Calvacade.</a>
+                                        </p>
                                         <audio controls src="/sounds/joe-jones--goat.m4a"></audio>
                                     </div>
                                 </figure>
-                                <p>
-                                    I discover your quirks: 
-                                    your love and absolute dedication to buying MegaMillion numbers two times a week!
-                                </p>
+                                <p>I discover your quirks: </p>
                                 <figure class="has-sound" id="lotto">
                                     <div>
+                                        <p>your love and absolute dedication to <a href="#lotto" class="audio-clip">buying MegaMillion numbers</a> two times a week!</p>
                                         <audio controls src="/sounds/joe-jones--kroger-lotto.m4a"></audio>
                                     </div>
                                 </figure>
@@ -260,24 +258,29 @@
                                         <figcaption>Joe with a hot chocolate.</figcaption>
                                     </div>
                                 </figure>
-                                <p>
-                                    your love of mischief through your <a class="audio-clip" href="#roach">reenactment of Neeraj’s fear of cockroaches in his car – “Joe, Joe, ah! You kill it!”</a>
-                                </p>
                                 <figure class="has-sound" id="roach">
                                     <div>
+                                        <p>
+                                            your love of mischief through your <a class="audio-clip" href="#roach">reenactment of Neeraj’s fear of cockroaches in his car – “Joe, Joe, ah! You kill it!”</a>
+                                        </p>
                                         <audio controls src="/sounds/joe-jones--roach.m4a"></audio>
                                     </div>
                                 </figure>
-                                <p>
-                                    We drive by White Oak Bayou often. We both dream of a day when we might bike it together. We never say this wish out loud.
-                                </p>
+                                <figure class="has-sound" id="wob">
+                                    <div>
+                                        <p>
+                                            We <a href="#wob" class="audio-clip">drive by White Oak Bayou often</a>. We both dream of a day when we might bike it together. We never say this wish out loud.
+                                        </p>
+                                        <audio controls src="/sounds/joe-jones--wob.m4a"></audio>
+                                    </div>
+                                </figure>
                                 <p>
                                     The next several months are a blur. We walk up and down your stairs, to and from the car, some days effortless, some days, you grimace in pain with each step. We sit in traffic. You catch all my wrong turns and laugh when I duck cops after I get two tickets driving with you.
                                 </p>
                                 <figure class="has-image has-sound" id="fishing">
                                     <div>
                                         <p>
-                                            We sit outside your apartment, <a href="#fishing" class="audio-clip"></a>talking for hours.
+                                            We sit outside your apartment, <a href="#fishing" class="audio-clip">talking for hours</a>.
                                         </p>
                                         <audio controls src="/sounds/joe-jones--about-fishing.m4a"></audio>
                                         <img src="/images/joe/joe-jones--apartment--sun.jpg" alt="">
@@ -301,8 +304,14 @@
                                      <!-- show you the things that i like, sister recording -->
                                       <!-- mega bucks -- roaches (2nd) recording -->
                                        <!-- eels  march 1st roach -->
-                                    Every now and then, Joe tells me he’s been down before, but he always catches a big break, a second-wind. We see this in real-time: Each time you seem really broken, each time we think it really might be time for us to convince you to accept hospice, you bounce back with vigor. You oscillate between thoughts of death to dreams of riding a <a class="audio-clip" href="#galveston">motorcycle again to Galveston beach</a>.
+                                    Every now and then, Joe tells me he’s been down before, but he always catches a big break, a second-wind. We see this in real-time: Each time you seem really broken, each time we think it really might be time for us to convince you to accept hospice, you bounce back with vigor.
                                 </p>
+                                <figure class="has-sound" id="galveston">
+                                    <div>
+                                        <p>You oscillate between thoughts of death to dreams of riding a <a class="audio-clip" href="#galveston">motorcycle again to Galveston beach</a>.</p>
+                                        <audio controls src="/sounds/joe-jones--motorcycle.m4a"></audio>
+                                    </div>
+                                </figure>
                                 <p>
                                     Sometimes, I ponder the timing of my entering into his life as he’s on his last leg. Am I his grim reaper? His Charon, here to ferry him to the underworld after collecting a coin? His xolo dog walking with him to his death?
                                 </p>
@@ -453,25 +462,68 @@
         </div>
     </div>
     <script>
+
+        function handleActiveAudio(audioID) {
+            Array.prototype.map.call(document.querySelectorAll(`figure:not(#${audioID}) audio`), function (audioElement) {
+                audioElement.pause();
+            });
+
+            Array.prototype.map.call(document.querySelectorAll(`.audio-clip.active:not([href="#${audioID}"])`), function (linkElement) {
+                linkElement.classList.remove('active');
+            });
+
+            const audioElement = document.querySelector(`#${audioID} audio`);
+            const linkElement = document.querySelector(`[href="#${audioID}"]:not(.active)`);
+
+            if (audioElement) {
+                audioElement.play();
+            }
+
+            if (linkElement) {
+                linkElement.classList.add('active');
+            }
+
+        }
+
+        const options = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 1.0,
+        };
+
+        const observer = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    let elem = entry.target;
+                    if (entry.intersectionRatio >= 0.75) {
+                        handleActiveAudio(entry.target.parentElement.parentElement.id);
+                    }
+                }
+            });
+
+        }, options);
+
+        Array.prototype.map.call(document.querySelectorAll('audio'), function (audioEl) {
+            observer.observe(audioEl);
+        })
+
         document.addEventListener('mouseover', function (mouseEvent) {
             if (mouseEvent.target.classList.contains('audio-clip')) {
-                const itemName = mouseEvent.target.getAttribute('href')
+                const itemName = mouseEvent.target.getAttribute('href') || '';
+                const audioID = itemName.replaceAll('#', '');
 
-                Array.prototype.map.call(document.querySelectorAll('audio'), function (audioElement) {
-                    audioElement.pause();
-                });
+                handleActiveAudio(audioID)
+                // Array.prototype.map.call(document.querySelectorAll('audio'), function (audioElement) {
+                //     audioElement.pause();
+                // });
 
-                document.querySelector(`${itemName} audio`).play();
+                // document.querySelector(`${itemName} audio`).play();
+
             }
             if (mouseEvent.target.tagName === 'IMG') {
                 const figureParent = mouseEvent.target.parentElement.parentElement;
                 if (figureParent.classList.contains('has-sound')) {
-
-                    Array.prototype.map.call(document.querySelectorAll('audio'), function (audioElement) {
-                        audioElement.pause();
-                    });
-    
-                    figureParent.querySelector('audio').play();
+                    handleActiveAudio(figureParent.id);
                 }
                 // figureParent.classList.add('focus');
             }
