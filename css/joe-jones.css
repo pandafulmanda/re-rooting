@@ -107,6 +107,10 @@ img {
     backdrop-filter: blur(1rem);
 }
 
+.entry figure.cover {
+    min-height: 100vh;
+}
+
 a.audio-clip {
     color: inherit;
     /* background-color: #82ffff54; */
