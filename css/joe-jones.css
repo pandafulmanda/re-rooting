@@ -6,6 +6,10 @@ img {
     padding: 2rem 2rem 4rem 2rem;
 }
 
+.entry h4 {
+    border-bottom: 1px solid #000000;
+}
+
 .entry img[src="/images/joe/joe-jones--signs--hot-chocolate.jpg"] {
     max-width: 70%;
 }
@@ -15,7 +19,10 @@ img {
         padding: 2rem 0 4rem 0;
     }
     .fluid-container .entry {
-        padding: 1em;
+        padding: 0;
+    }
+    h1, h4 {
+        padding: 0 2rem;
     }
 }
 
@@ -31,14 +38,64 @@ img {
     min-height: auto;
 }
 
+.entry:not(.footnotes) p {
+    font-size: 1.1em;
+}
+
+.footnotes {
+    padding-top: 20vh;
+}
+
 .entry p {
     padding: 1rem 2rem;
     margin-bottom: 0;
-    z-index: 2;
+    /* z-index: 2; */
     /* background-color: #f7f7f97e; */
-    /* background-color: rgba(247, 247, 249, 0.75);
-    backdrop-filter: blur(1rem); */
 }
+
+/* .column > p {
+    margin-bottom: 50vh;
+} */
+
+.scrolly > p {
+    background-color: rgba(247, 247, 249, 0.75);
+    backdrop-filter: blur(1rem);
+    
+    position: sticky;
+    top: -100vh;
+}
+
+.scrolly > p.stay {
+    top: 0;
+}
+
+.scrolly > p.darken {
+    background-color: rgba(0, 0, 0, 0.65);
+    color: rgba(247, 247, 249, 0.95);
+}
+
+.darken {
+    background-color: rgba(0, 0, 0, 0.65);
+    color: rgba(247, 247, 249, 0.95);
+    font-style: italic;
+}
+
+span.darken {
+    padding: 0 0.4rem;
+}
+
+.scrolly > p:not(:last-child, :first-child),
+.scrolly > figure.has-sound:not(.has-image):not(:last-child, :first-child) {
+    margin-bottom: 100vh;
+}
+
+/* .scrolly > p:last-child {
+    padding-bottom: 20vh;
+} */
+
+/* .scrolly > p + figure {
+    margin-top: -98vh;
+} */
 
 /* .entry p + p {
     margin-top: 2.5rem;
@@ -47,7 +104,10 @@ img {
 .entry img {
     max-width: 720px;
 }
-
+/* 
+.entry figure {
+    height: 100vh;
+} */
 
 .entry figure .images {
     margin: 0;
@@ -95,12 +155,12 @@ img {
     width: 100%;
 }
 
-.entry figure {
+.scrolly figure {
     /* filter: blur(1rem);
     transition: all .3s ease-in; */
 
-    /* position: sticky;
-    top: 0; */
+    position: sticky;
+    top: 0;
     margin: 0;
 
     background-color: rgba(247, 247, 249, 0.75);
@@ -122,6 +182,57 @@ a.audio-clip.active {
     background-color: #82ffff;
 }
 
+/* .sticky {
+    position: sticky;
+    top: 0;
+} */
+
 /* .entry figure.has-image.focus {
     filter: blur(0);
+} */
+
+/* section {
+    background-size: contain;
+    background-attachment: fixed;
+    width: 100%;
+    background-position: top center;
+    position: sticky;
+    top: 0;
+    padding: 100vh 1rem;
+}
+
+section p {
+    background-color: rgba(247, 247, 249, 0.75);
+    backdrop-filter: blur(1rem);
+} */
+
+.entry p[data-highlight="am-i"] {
+    text-align: center;
+}
+.scrolly > p.stay[data-highlight="am-i"] {
+    top: 35vh;
+    padding: 5vh;
+}
+
+[data-highlight="becoming"] {
+    padding: 20vh 0;
+}
+
+p[data-highlight="something-else"],
+p[data-highlight="someone-else"] {
+    text-align: right;
+    margin-bottom: 0;
+    padding: 0 2rem;
+}
+
+/* p[data-highlight="someone-else"] em {
+    font-weight: 800;
+} */
+
+p[data-highlight="to-you"] {
+    text-align: right;
+}
+
+/* .scrolly > p.stay[data-highlight="am-i"] + p.stay {
+    top: 0;
 } */
