@@ -524,8 +524,8 @@
         });
 
         document.addEventListener('click', function (clickEvent) {
-            if (mouseEvent.target.tagName === 'A') {
-                if ((mouseEvent.target.getAttribute('href') || '')[0] === '#') {
+            if (clickEvent.target.tagName === 'A') {
+                if ((clickEvent.target.getAttribute('href') || '')[0] === '#') {
                     clickEvent.preventDefault();
                 }
             }
