@@ -208,8 +208,10 @@ section p {
     backdrop-filter: blur(1rem);
 } */
 
-.entry p[data-highlight="am-i"] {
+.entry [data-highlight="am-i"] {
     text-align: center;
+    display: block;
+    padding: 5vh;
 }
 .scrolly > p.stay[data-highlight="am-i"],
 .scrolly > p.stay[data-highlight="inside-out"] {
@@ -218,8 +220,17 @@ section p {
     margin-bottom: 50vh;
 }
 
+.scrolly > p[data-highlight="timing"] {
+    top: 35vh;
+}
+
 [data-highlight="becoming"] {
     padding: 20vh 0;
+}
+
+[data-highlight="death-guides"] {
+    text-align: right;
+    display: block;
 }
 
 p[data-highlight="something-else"],
@@ -240,3 +251,17 @@ p[data-highlight="to-you"] {
 /* .scrolly > p.stay[data-highlight="am-i"] + p.stay {
     top: 0;
 } */
+
+/* .question-mark::before {
+    content: ' ';
+    font-size: 0.5rem;
+} */
+
+.question-mark {
+    font-style: italic;
+    border-bottom: 1px solid;
+    border-color: inherit;
+    padding: 2px;
+    line-height: 1;
+    display: inline-block;
+}
