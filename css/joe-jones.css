@@ -10,7 +10,8 @@ img {
     border-bottom: 1px solid #000000;
 }
 
-.entry img[src="/images/joe/joe-jones--signs--hot-chocolate.jpg"] {
+.entry img[src="/images/joe/joe-jones--signs--hot-chocolate.jpg"],
+.entry img[src="/images/joe/joe-jones--steps.jpg"] {
     max-width: 70%;
 }
 
@@ -27,7 +28,8 @@ img {
 }
 
 @media (max-width: 640px) {
-    .entry img[src="/images/joe/joe-jones--signs--hot-chocolate.jpg"] {
+    .entry img[src="/images/joe/joe-jones--signs--hot-chocolate.jpg"],
+    .entry img[src="/images/joe/joe-jones--steps.jpg"] {
         max-width: 100%;
     }
 }
@@ -209,9 +211,11 @@ section p {
 .entry p[data-highlight="am-i"] {
     text-align: center;
 }
-.scrolly > p.stay[data-highlight="am-i"] {
+.scrolly > p.stay[data-highlight="am-i"],
+.scrolly > p.stay[data-highlight="inside-out"] {
     top: 35vh;
     padding: 5vh;
+    margin-bottom: 50vh;
 }
 
 [data-highlight="becoming"] {

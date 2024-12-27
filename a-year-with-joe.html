@@ -4,8 +4,8 @@
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>a rando's digital journal</title>
-    <meta name="description" content="just some words exhaled by a Houstonian">
+    <title>A Year with Joe</title>
+    <meta name="description" content="A year with Joe Jones, as experienced by Amanda Shih.">
 
     <!-- Mobile Specific Metas
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -178,13 +178,23 @@
                                     <p>
                                         As modern people, we chase time, wish for time-travel, long to master time. When I…or anyone really, sit next to you, we sit next to seventy-eight years of a life hard-lived, well-lived, seventy-eight years that I have a deep window into, seventy-eight years that you so lovingly share.
                                     </p>
-                                    <p>
-                                        A precious life. My precious brother.
-                                    </p>
-                                    <p>
+                                </section>
+                                <section class="scrolly">
+                                    <figure class="has-image">
+                                        <p>
+                                            A precious life. My precious brother.
+                                        </p>
+                                        <div class="images">
+                                            <div>
+                                                <img class="full-height" src="/images/joe/joe-jones--steps.jpg" alt="" style="object-position: 25%;">
+                                                <figcaption>Joe sitting on his steps after a dialysis appointment.</figcaption>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <p class="stay">
                                         You tell me to come sit with you during one of your dialysis appointments. You have me feel the warmth of your blood through the polypropylene tubes. I feel an itch in my nose, and an ache in my eyes.
                                     </p>
-                                    <p>
+                                    <p class="stay" data-highlight="inside-out">
                                         Why, why, why are you <span class="darken">inside out</span>?
                                     </p>
                                     <p>
@@ -272,10 +282,16 @@
                                     </figure>
                                 </section>
                                 <section class="scrolly">
-                                    <figure class="has-sound" id="lotto">
+                                    <figure class="has-image has-sound" id="lotto">
                                         <p>I discover your quirks: </p>
                                         <p>your love and absolute dedication to <a href="#lotto" class="audio-clip">buying MegaMillion numbers</a> two times a week!</p>
                                         <audio controls src="/sounds/joe-jones--kroger-lotto.m4a"></audio>
+                                        <div class="images">
+                                            <div>
+                                                <img src="/images/joe/joe-jones--lotto.jpg" alt="">
+                                                <figcaption>Sampling of Joe's many lotto stubs.</figcaption>
+                                            </div>
+                                        </div>
                                     </figure>
                                     <figure class="has-image">
                                         <p>
@@ -541,7 +557,7 @@
                     </p>
                     <div>
                         <p>
-                            You can still see the work of Joe Jones around Houston at:
+                            You can still see the works of Joe Jones around Houston at:
                         </p>
                         <ul>
                             <li>
@@ -600,7 +616,7 @@
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     let elem = entry.target;
-                    if (entry.intersectionRatio >= 0.75) {
+                    if (entry.intersectionRatio >= 0.9) {
                         handleActiveAudio(entry.target.parentElement.id);
                     }
                 }
