@@ -32,7 +32,7 @@ body {
 
 .entry p {
     letter-spacing: 0.5px;
-    font-size: 1em;
+    font-size: 1.25em;
 }
 
 .entry h4 {
@@ -159,6 +159,17 @@ body {
 img {
     max-width: 100%;
 }
+
+.photo-item[data-title]::before {
+    content: attr(data-title);
+    font-style: italic;
+}
+/* 
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1em;
+} */
 
 @media (max-width: 550px) {
     .nav {
