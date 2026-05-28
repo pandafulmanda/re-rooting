@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: "Jost", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #F7F7F9;
